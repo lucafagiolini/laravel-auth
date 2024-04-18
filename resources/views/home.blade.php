@@ -8,5 +8,10 @@
 
     <div class="content">
 
+        <div class="container">
+            <img src="https://capoprogetto.it/wp-content/uploads/2020/12/wip-work-in-progress.jpg" alt="">
+
+        </div>
+
     </div>
 @endsection
