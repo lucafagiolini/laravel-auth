@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
@@ -28,4 +29,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
+
+
+Route::middleware(['auth', 'verified'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(
+        function () {
+
+            // here i got all the routes that i need to be:
+            // grouped under the admin middleware
+            // all the names should be prefixed with admin.
+            // and the url should be prefixed with "admin/"
+
+            Route::get('/', [DashboardController::class, 'index'])->name('index');
+            Route::get('/users', [DashboardController::class, 'users'])->name('users');
+        }
+    );
