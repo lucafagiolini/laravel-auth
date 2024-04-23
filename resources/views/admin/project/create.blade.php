@@ -6,17 +6,19 @@
 
         <form action="{{ route('admin.project.store') }}" method="POST">
             @csrf
-
             {{-- title input --}}
             <div class="mb-4 pt-4">
+
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name='title'
                     placeholder="">
+
                 @error('title')
-                    <div class="invalid-feedback ">
+                    <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
+
             </div>
 
             {{-- description input --}}
