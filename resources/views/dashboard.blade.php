@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center p-5">
-                    <a href="{{ route('project.index') }}" class="btn btn-danger btn-sm">Project Management</a>
+                    <a href="{{ route('admin.project.index') }}" class="btn btn-danger btn-sm">Project Management</a>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,24 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            // vlaidation rules
+
+            'title' => 'required|string|unique:projects',
+            'description' => 'required|string',
+            'img' => 'required|string',
+            'tecnologies' => 'required|string',
+            'link' => 'required|string',
+        ];
+    }
+
+    public function message(): array
+    {
+        return [
+            'title.required' => 'Title is required',
+            'description.required' => 'Description is required',
+            'img.required' => 'Image is required',
+            'tecnologies.required' => 'Tecnologies is required',
+            'link.required' => 'Link is required',
         ];
     }
 }
