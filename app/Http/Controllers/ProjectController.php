@@ -32,7 +32,6 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
 
     {
-        dd($request->all());
         // validation
         $request->validated();
 
@@ -45,7 +44,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect()->route('admin.projects.index')->with('success', 'New Project created successfully');
+        return redirect()->route('admin.project.index')->with('success', 'New Project created successfully');
     }
 
     /**

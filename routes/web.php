@@ -48,6 +48,6 @@ Route::middleware(['auth', 'verified'])
             Route::get('/', [DashboardController::class, 'index'])->name('index');
             Route::get('/users', [DashboardController::class, 'users'])->name('users');
 
-            Route::resource('project', ProjectController::class);
+            Route::resource('/project', ProjectController::class);
         }
     );
