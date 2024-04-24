@@ -36,11 +36,7 @@ class ProjectController extends Controller
         $request->validated();
 
         $project = new Project();
-        $project->title = $request->title;
-        $project->description = $request->description;
-        $project->img = $request->img;
-        $project->tecnologies = $request->tecnologies;
-        $project->link = $request->link;
+        $project->fill($request->all());
 
         $project->save();
 
@@ -60,7 +56,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.project.edit', compact('project'));
     }
 
     /**
@@ -68,7 +64,13 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $request->validated();
+
+        $project->update($request->all());
+
+        $project->save();
+
+        return redirect()->route('admin.project.index')->with('success', 'Project updated successfully');
     }
 
     /**

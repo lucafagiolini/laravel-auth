@@ -11,7 +11,7 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,24 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            // vlaidation rules
+
+            'title' => '|string|unique:projects',
+            'description' => '|string',
+            'img' => '|string',
+            'tecnologies' => '|string',
+            'link' => '|string',
+        ];
+    }
+
+    public function message(): array
+    {
+        return [
+            'title' => 'Title isn\'t valid',
+            'description' => 'Description isn\'t valid',
+            'img' => 'Image isn\'t valid ',
+            'tecnologies' => 'Tecnologies isn\'t valid ',
+            'link' => 'Link isn\'t valid ',
         ];
     }
 }
