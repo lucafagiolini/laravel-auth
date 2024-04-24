@@ -24,11 +24,11 @@ class UpdateProjectRequest extends FormRequest
         return [
             // vlaidation rules
 
-            'title' => '|string|unique:projects',
-            'description' => '|string',
-            'img' => '|string',
-            'tecnologies' => '|string',
-            'link' => '|string',
+            'title' => '|string|nullable|',
+            'description' => 'string|nullable',
+            'img' => 'string|nullable',
+            'tecnologies' => 'string|nullable',
+            'link' => 'string|nullable',
         ];
     }
 
