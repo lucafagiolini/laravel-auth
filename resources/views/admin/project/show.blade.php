@@ -6,31 +6,49 @@
 
             <h1 class="p-3">Project Details of {{ $project->title }}</h1>
 
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{{ $project->img }}" class="img-fluid rounded-start" alt="...">
+            <div class="card mb-3 bg-dark-subtle" style="max-width: 32rem;">
+                <div>
+                    <div>
+                        <img src="{{ asset('storage/' . $project->cover_image) }}" class="img-top rounded-top" alt="..."
+                            style="max-width: 31rem;">
                     </div>
                     <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title text-capitalize">title: {{ $project->title }}</h5>
-                            <p class="card-text text-capitalize">description: {{ $project->description }}</p>
-                            <p class="card-text text-capitalize">
-                                <small class="text-body-secondary text-capitalize">
-                                    tecnologies: {{ $project->tecnologies }}
-                                </small>
-                            </p>
-                            <p class="card-text">
-                                <small class="text-body-secondary">
-                                    Project link:
-                                    {{ $project->link }}
-                                </small>
-                            </p>
-                            <p class="card-text">
-                                <small class="text-body-secondary text-capitalize">
-                                    Created: {{ $project->created_at }}
-                                </small>
-                            </p>
+                        <div class="card-body" style="width: 31rem;">
+                            <ul class="list-group list-group-flush">
+
+                                <li class="list-group-item">
+                                    <h5 class="card-title text-capitalize">title: {{ $project->title }}</h5>
+
+                                </li>
+
+                                <li class="list-group-item">
+                                    <p class="card-text text-capitalize">description: {{ $project->description }}</p>
+
+                                </li>
+
+                                <li class="list-group-item">
+                                    <p class="card-text text-capitalize">
+                                        <small class="text-body-secondary text-capitalize">
+                                            tecnologies: {{ $project->tecnologies }}
+                                        </small>
+                                    </p>
+                                </li>
+                                <li class="list-group-item">
+                                    <p class="card-text">
+                                        <small class="text-body-secondary">
+                                            Project link:
+                                            {{ $project->link }}
+                                        </small>
+                                    </p>
+                                </li>
+                                <li class="list-group-item">
+                                    <p class="card-text">
+                                        <small class="text-body-secondary text-capitalize">
+                                            Created: {{ $project->created_at }}
+                                        </small>
+                                    </p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

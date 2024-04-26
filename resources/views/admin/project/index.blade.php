@@ -23,7 +23,7 @@
                         <th scope="row">{{ $project->id }}</th>
                         <td>{{ $project->title }}</td>
                         <td> {{ $project->description }}</td>
-                        <td> {{ $project->img }}</td>
+                        <td> {{ $project->cover_image }}</td>
                         <td> {{ $project->tecnologies }}</td>
                         <td> {{ $project->link }}</td>
                         <td scope="col">

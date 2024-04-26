@@ -26,7 +26,7 @@ class StoreProjectRequest extends FormRequest
 
             'title' => 'required|string|unique:projects',
             'description' => 'required|string',
-            'img' => 'required|string',
+            'cover_img' => 'file|nullable',
             'tecnologies' => 'required|string',
             'link' => 'required|string',
         ];
@@ -37,7 +37,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'title.required' => 'Title is required',
             'description.required' => 'Description is required',
-            'img.required' => 'Image is required',
+            'cover_img' => 'Image file type is invalid',
             'tecnologies.required' => 'Tecnologies is required',
             'link.required' => 'Link is required',
         ];

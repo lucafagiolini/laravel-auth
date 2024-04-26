@@ -26,7 +26,7 @@ class UpdateProjectRequest extends FormRequest
 
             'title' => '|string|nullable|',
             'description' => 'string|nullable',
-            'img' => 'string|nullable',
+            'cover_img' => 'file|nullable',
             'tecnologies' => 'string|nullable',
             'link' => 'string|nullable',
         ];
@@ -37,7 +37,7 @@ class UpdateProjectRequest extends FormRequest
         return [
             'title' => 'Title isn\'t valid',
             'description' => 'Description isn\'t valid',
-            'img' => 'Image isn\'t valid ',
+            'cover_img' => 'Image isn\'t valid ',
             'tecnologies' => 'Tecnologies isn\'t valid ',
             'link' => 'Link isn\'t valid ',
         ];

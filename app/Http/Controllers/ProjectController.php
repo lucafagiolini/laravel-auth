@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -37,6 +38,14 @@ class ProjectController extends Controller
 
         $project = new Project();
         $project->fill($request->all());
+
+        // check if the image is uploaded
+        if ($request->hasFile('cover_image')) {
+            // we save the path of the image in a variable
+            $path = Storage::disk('public')->put('project_images', $request->cover_image);
+            // we save the path of the image in the database
+            $project->cover_image = $path;
+        }
 
         $project->save();
 
