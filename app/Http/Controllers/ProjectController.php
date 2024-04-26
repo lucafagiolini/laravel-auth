@@ -77,6 +77,14 @@ class ProjectController extends Controller
 
         $project->update($request->all());
 
+        // check if the image is uploaded
+        if ($request->hasFile('cover_image')) {
+            // we save the path of the image in a variable
+            $path = Storage::disk('public')->put('project_images', $request->cover_image);
+            // we save the path of the image in the database
+            $project->cover_image = $path;
+        }
+
         $project->save();
 
         return redirect()->route('admin.project.index')->with('success', 'Project updated successfully');

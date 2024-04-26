@@ -37,6 +37,7 @@
                                     <p class="card-text">
                                         <small class="text-body-secondary">
                                             Project link:
+                                            <link rel="stylesheet" href="{{ $project->link }}">
                                             {{ $project->link }}
                                         </small>
                                     </p>
